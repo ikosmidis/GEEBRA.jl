@@ -8,7 +8,7 @@
 [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://ikosmidis.github.io/GEEBRA.jl/stable/)
 [![](https://img.shields.io/github/license/ikosmidis/GEEBRA.jl)](https://github.com/ikosmidis/GEEBRA.jl/blob/master/LICENSE.md)
 
-**As of version 0.1.1, GEEBRA will receive no further updates. All methods in GEEBRA are available and will be maintained in the more extensive [MEstimation](https://github.com/ikosmidis/MEstimation.jl) Julia package.**
+**As of version 0.1.1, GEEBRA will receive no further updates in the methods it provides. All methods in GEEBRA are available and will be maintained in the more extensive [MEstimation](https://github.com/ikosmidis/MEstimation.jl) Julia package.**
 
 ## Package description
 

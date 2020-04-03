@@ -84,12 +84,6 @@ function Base.show(io::IO, results::GEEBRA_results;
         println(io, "Bias reduction method: ", results.br_method)
     end
     println(io)
-    # println("Parameter\tEstimate\tS.E")
-    # for i in 1:p
-    #     est = theta[i]
-    #     std = sqrt(v[i, i])
-    #     println("theta[$(i)]", "\t", round(est, digits = digits), "\t\t", round(std, digits = digits))
-    # end
     show(io, coeftable(results))
     if results.has_objective
         objfun = objective_function(results.theta, results.data, results.template, results.br)

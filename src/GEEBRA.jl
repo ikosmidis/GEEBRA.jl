@@ -1,5 +1,7 @@
 module GEEBRA # general estimating equations with or without bias-reducting adjustments
 
+@warn "As of version 0.1.1, the methods GEEBRA provides will receive no further updates. All methods are available and will be maintained in the more extensive [MEstimation](https://github.com/ikosmidis/MEstimation.jl) Julia package."
+
 using NLsolve
 using Optim
 using FiniteDiff

@@ -25,8 +25,6 @@ function fit(template::objective_function_template,
     else
         error(estimation_method, " is not a recognized estimation method")
     end
-    ## down the line when det is implemented we need to be passing the
-    ## bias reduction method to objetive_function
     obj = beta -> -objective_function(beta, data, template, br)
     out = optimize(obj, theta, optim_method, optim_options)
     if (estimation_method == "M")
@@ -37,10 +35,8 @@ function fit(template::objective_function_template,
         elseif (br_method == "explicit_trace")
             quants = obj_quantities(out.minimizer, data, template, true)
             jmat_inv = quants[2]
-            ## We use finite differences to get the adjustment
             adjustment = FiniteDiff.finite_difference_gradient(beta -> obj_quantities(beta, data, template, true)[1], out.minimizer)
             theta = out.minimizer + jmat_inv * adjustment
-            ## Reset br
             br = true
         end
     end
@@ -73,8 +69,6 @@ function fit(template::estimating_function_template,
     else
         error(estimation_method, " is not a recognized estimation method")
     end
-    ## down the line when det is implemented we need to be passing the
-    ## bias reduction method to estimating_function
     ef = get_estimating_function(data, template, br)   
     out = nlsolve(ef, theta; nlsolve_arguments...)
     if (estimation_method == "M")
@@ -87,7 +81,6 @@ function fit(template::estimating_function_template,
             adjustment = quants[1]
             jmat_inv = quants[2]
             theta = out.zero + jmat_inv * adjustment
-            ## Reset br
             br = true
         end
     end
